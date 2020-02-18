@@ -7,5 +7,16 @@
  */
 
 var firstNonRepeatedCharacter = function(string) {
-  // TODO: your solution here
+  let newArr = string.split('');
+  let resultObj = {};
+  for(let i=0; i<newArr.length; i++){
+    if(resultObj.hasOwnProperty(newArr[i])){
+      resultObj[newArr[i]]++;
+    }else{
+      resultObj[newArr[i]] = 1;
+    }
+  }
+  for(let key in resultObj){
+    if(resultObj[key] === 1) return key;
+  }
 };
