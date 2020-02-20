@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "toy01": "mocha 01-rockPaperScissors",
+    
     "toy02": "mocha 02-nonrepeatedCharacter"
   },
   "author": "codestates",

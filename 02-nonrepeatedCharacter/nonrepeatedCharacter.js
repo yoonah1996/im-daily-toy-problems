@@ -6,6 +6,7 @@
  *   firstNonRepeatedCharacter('AACBDB'); // => 'C'
  */
 
+ //중복되지 않는 첫번째 값
 var firstNonRepeatedCharacter = function(string) {
   let newArr = string.split('');
   let resultObj = {};
