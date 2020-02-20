@@ -14,7 +14,7 @@
  * b.isSubsetOf(['reset','merge','add','commit']) // true 
  *
  * See http://en.wikipedia.org/wiki/Subset for more on the definition of a
- * subset.
+ * subset..
 */
 
 /*
@@ -23,5 +23,17 @@
 */
 
 Array.prototype.isSubsetOf = function(array){
-  // Your code here
+  let newArr = this;
+  let result = false;
+  for(let i=0; i<newArr.length; i++){
+    for(let j=0; j<array.length; j++){
+      if(JSON.stringify(newArr[i]) === JSON.stringify(array[j])){
+        result = true;
+        break;
+      }
+    }
+    if(result === false) return result;
+    result = false;
+  }
+  return true;
 };
