@@ -27,7 +27,7 @@ Array.prototype.isSubsetOf = function(array){
   let result = false;
   for(let i=0; i<newArr.length; i++){
     for(let j=0; j<array.length; j++){
-      if(JSON.stringify(newArr[i]) === JSON.stringify(array[j])){
+      if(String(newArr[i]) === String(array[j])){ //JSON.stringify(newArr[i]) === JSON.stringify(array[j])도 됨
         result = true;
         break;
       }
