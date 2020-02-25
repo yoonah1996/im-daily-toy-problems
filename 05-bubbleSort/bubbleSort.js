@@ -33,5 +33,9 @@
 // Feel free to add helper functions if needed.
 
 var bubbleSort = function(array) {
-  // Your code here.
+    let result = JSON.parse(JSON.stringify(array));
+    for(let i=0; i<array.length; i++){
+        
+    }
+  
 };
