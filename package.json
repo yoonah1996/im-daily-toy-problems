@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "toy01" : "mocha 01-rockPaperScissors",
+    "toy04" : "mocha 04-nthFibonacci",
+    "toy05" : "mocha 05-bubbleSort"
+  },
   "author": "codestates",
   "devDependencies": {
     "axios": "^0.19.0",
