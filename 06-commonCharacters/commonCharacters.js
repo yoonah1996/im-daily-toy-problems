@@ -11,5 +11,16 @@
  */
 
 var commonCharacters = function(string1, string2) {
-  // TODO: Your code here!
+  let result = [];
+  let newString1 = string1.split("");
+  let newString2 = string2.split("");
+
+  for(let i=0; i<newString1.length; i++){
+    for(let j=0; j<newString2.length; j++){
+      if(newString1[i] === newString2[j]){
+        result.push(newString2[j]);
+      }
+    }
+  }
+  return result.join("");
 };
