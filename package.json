@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "submit": "node .travis/submit.js",
-    "test": "node .travis/getdailyscript.js | bash"
+    "test": "node .travis/getdailyscript.js | bash",
+    "toy06" : "mocha 06-commonCharacters",
+    "toy07" : "mocha 07-treeDFSelect",
+    "toy08" : "mocha 08-largestProductOfThree"
   },
   "author": "codestates",
   "devDependencies": {
