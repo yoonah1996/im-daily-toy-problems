@@ -12,4 +12,15 @@
   *
   */
 var deepEquals = function(apple, orange){
+  let copy1 =[];
+  let copy2 =[];
+  let flag = false;
+  for(let key of Object.keys(apple).sort()){
+    copy1.push( {key : apple[key]});
+  }
+  for(let key of Object.keys(orange).sort()){
+    copy2.push( {key : orange[key]});
+  }
+  if(JSON.stringify(copy1) === JSON.stringify(copy2)) return true;
+  return false;
 };
