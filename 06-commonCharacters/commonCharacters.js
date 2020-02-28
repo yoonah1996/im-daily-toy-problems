@@ -10,17 +10,36 @@
  * Extra credit: Extend your function to handle more than two input strings.
  */
 
-var commonCharacters = function(string1, string2) {
+var commonCharacters = function (...arg) {
   let result = [];
-  let newString1 = string1.split("");
-  let newString2 = string2.split("");
-
-  for(let i=0; i<newString1.length; i++){
-    for(let j=0; j<newString2.length; j++){
-      if(newString1[i] === newString2[j]){
-        result.push(newString2[j]);
+  let newString = arg[0].split("");
+  for (let i = 1; i < arg.length; i++) {
+    for (let j = 0; j < newString.length; j++) {
+      for (let k = 0; k < arg[i].length; k++){
+        if (newString[j] === arg[i][k]) {
+          result.push(newString[j]);
+          // console.log(result);
+        }
       }
+      newString = JSON.parse(JSON.stringify(result));
+      result = [];
     }
   }
-  return result.join("");
+  console.log(newString);
+  return newString.join("");
 };
+
+
+
+// let result = [];
+//   let newString1 = string1.split("");
+//   let newString2 = string2.split("");
+
+//   for(let i=0; i<newString1.length; i++){
+//     for(let j=0; j<newString2.length; j++){
+//       if(newString1[i] === newString2[j]){
+//         result.push(newString2[j]);
+//       }
+//     }
+//   }
+//   return result.join("");
