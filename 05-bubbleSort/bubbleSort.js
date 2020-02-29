@@ -33,9 +33,15 @@
 // Feel free to add helper functions if needed.
 
 var bubbleSort = function(array) {
-    let result = JSON.parse(JSON.stringify(array));
-    for(let i=0; i<array.length; i++){
-        
+    // let result = JSON.parse(JSON.stringify(array));
+    for(let i=array.length-1; i>0; i--){
+      for(let j=0; j < i; j++){
+        if(array[j] > array[j+1]){
+          let newWord = array[j];
+          array[j] = array[j+1];
+          array[j+1] = newWord;
+        }
+      }
     }
-  
+  return array;
 };
