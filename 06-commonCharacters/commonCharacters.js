@@ -25,7 +25,6 @@ var commonCharacters = function (...arg) {
       result = [];
     }
   }
-  console.log(newString);
   return newString.join("");
 };
 
