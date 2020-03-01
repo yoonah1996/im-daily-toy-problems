@@ -21,6 +21,8 @@ var rockPaperScissors = function (n) {
   let resultArr = [];
   let inArr = [];
   let origin = ["rock", "paper", "scissors"];
+  if(n===0) return[];
+  if(n === undefined) n=3;
   // console.log(origin[0]);
   let resur = function (n, inArr){
     for(let i=0; i<3; i++){
