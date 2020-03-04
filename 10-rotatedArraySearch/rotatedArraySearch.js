@@ -16,6 +16,14 @@
  */
 
 var rotatedArraySearch = function (rotated, target) {
-  // Your code here:
+  let count = 0;
+  for(let val of rotated){
+    if(val !== target){
+      count++;
+    }else{
+      return count;
+    }
+  }
+  return null
 };
 
