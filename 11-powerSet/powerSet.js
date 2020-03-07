@@ -20,31 +20,21 @@
 var powerSet = function(str){
     let result =[];
     let newStr = '';
+    let newArr = [];
+    let addStr = str.split('');
+    addStr = addStr.reduce(function(a,b) {if(a.indexOf(b)<0) a.push(b); return a;} ,[]);
     result.push(newStr);
     let recurtion = function(str){
         let addStr = str.split('');
         for(let i=0; i < addStr.length; i++){
             newStr = newStr + addStr[i];
             result.push(newStr);
-            // console.log(newStr);
-            if(addStr.length > 1){
-                addStr.shift();
-                addStr = addStr.join('');
-                // console.log(addStr);
-                recurtion(addStr);
-            }else{
-                addStr.shift();
-                result.push(addStr); 
-                newStr = newStr.split('');
-                newStr.pop();
-                newStr = newStr.join('');
-            }     
+            if(addStr.length > 0) recurtion(addStr.slice(i+1).join(""));    
         }
         newStr = newStr.split('');
         newStr.pop();
         newStr = newStr.join('');
     }
-    recurtion(str);
-    console.log(result);
+    recurtion(addStr.join(''));
     return result;
 }
