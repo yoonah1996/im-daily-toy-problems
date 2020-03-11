@@ -21,9 +21,9 @@ var commonCharacters = function (...arg) {
           // console.log(result);
         }
       }
-      newString = JSON.parse(JSON.stringify(result));
-      result = [];
     }
+    newString = JSON.parse(JSON.stringify(result));
+    result = [];
   }
   return newString.join("");
 };
