@@ -6,7 +6,7 @@
   "scripts": {
     "submit": "node .travis/submit.js",
     "test": "node .travis/getdailyscript.js | bash",
-    "toy11" : "mocha 11-powerSet"
+    "toy12" : "mocha 12-treeBFSelect"
   },
   "author": "codestates",
   "devDependencies": {
