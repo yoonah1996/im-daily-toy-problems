@@ -30,32 +30,38 @@
  * Basic tree that stores a value.
  */
 
-var Tree = function(value){
+var Tree = function (value) {
   this.value = value;
   this.children = [];
 };
 
 
-
-Tree.prototype.BFSelect = function(filter) {
+//너비 우선 탐색
+Tree.prototype.BFSelect = function (filter) {
   // return an array of values for which the function filter(value, depth) returns true
-  let newArr = [];
-  let newDepth = 0;
-  let recurtion = function(trees, newDepth){
+  let newObj = { arr: [this], dep: [0] };
+  let result = [];
+  let recurtion = function (trees, newDepth) {
     //filter 함수에 value값과 깊이가 들어가 있어야 filter함수가 제대로 작동 
     //ex)만약 두번째 깊이에서의 값만 true로 반환하는 함수가 있으면 newArr에는 당연히 그 깊잉 대한 값만 저장된다.
     //즉, filter함수가 value값을 쓸지 아니면 depth를 쓸지 정해져 있음 우리는 넣어주기만 하면됨.
-    if(filter(trees.value, newDepth) === true) {
-      newArr.push(JSON.parse(JSON.stringify(trees.value)))
+    if (filter(trees.value, newDepth) === true) {
+      result.push(JSON.parse(JSON.stringify(trees.value)))
     }
-    if(trees.children.length !== 0){
-      for(let i=0; i<trees.children.length; i++){
-        recurtion(trees.children[i], newDepth+1);
-      }
+    // console.log(result);
+    newDepth++;
+    for (let i = 0; i < trees.children.length; i++) {
+      newObj.arr.push(trees.children[i]);
+      newObj.dep.push(newDepth);
+    }
+    // console.log(newObj)
+    while (newObj.arr.length !== 0) {
+      recurtion(newObj.arr.pop(),newObj.dep.pop())
     }
   }
-  recurtion(this, newDepth)
-  return newArr;
+  recurtion(newObj.arr.pop(),newObj.dep.pop())
+  // console.log(result);
+  return result;
 };
 
 /**
@@ -66,14 +72,14 @@ Tree.prototype.BFSelect = function(filter) {
   * add an immediate child
   * (wrap values in Tree nodes if they're not already)
   */
-Tree.prototype.addChild = function(child){
-  if (!child || !(child instanceof Tree)){
+Tree.prototype.addChild = function (child) {
+  if (!child || !(child instanceof Tree)) {
     child = new Tree(child);
   }
 
-  if(!this.isDescendant(child)){
+  if (!this.isDescendant(child)) {
     this.children.push(child);
-  }else {
+  } else {
     throw new Error("That child is already a child of this tree");
   }
   // return the new child node for convenience
@@ -84,13 +90,13 @@ Tree.prototype.addChild = function(child){
   * check to see if the provided tree is already a child of this
   * tree __or any of its sub trees__
   */
-Tree.prototype.isDescendant = function(child){
-  if(this.children.indexOf(child) !== -1){
+Tree.prototype.isDescendant = function (child) {
+  if (this.children.indexOf(child) !== -1) {
     // `child` is an immediate child of this tree
     return true;
-  }else{
-    for(var i = 0; i < this.children.length; i++){
-      if(this.children[i].isDescendant(child)){
+  } else {
+    for (var i = 0; i < this.children.length; i++) {
+      if (this.children[i].isDescendant(child)) {
         // `child` is descendant of this tree
         return true;
       }
@@ -102,12 +108,12 @@ Tree.prototype.isDescendant = function(child){
 /**
   * remove an immediate child
   */
-Tree.prototype.removeChild = function(child){
+Tree.prototype.removeChild = function (child) {
   var index = this.children.indexOf(child);
-  if(index !== -1){
+  if (index !== -1) {
     // remove the child
-    this.children.splice(index,1);
-  }else{
+    this.children.splice(index, 1);
+  } else {
     throw new Error("That node is not an immediate child of this tree");
   }
 };
