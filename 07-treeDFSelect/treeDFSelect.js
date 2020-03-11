@@ -36,7 +36,22 @@ var Tree = function(value){
 };
 
 Tree.prototype.DFSelect = function(filter) {
-  let newArr = new Tree(filter(this.value));
+  let newArr = [];
+  let newDepth = 0;
+  let recurtion = function(trees, newDepth){
+    //filter 함수에 value값과 깊이가 들어가 있어야 filter함수가 제대로 작동 
+    //ex)만약 두번째 깊이에서의 값만 true로 반환하는 함수가 있으면 newArr에는 당연히 그 깊잉 대한 값만 저장된다.
+    //즉, filter함수가 value값을 쓸지 아니면 depth를 쓸지 정해져 있음 우리는 넣어주기만 하면됨.
+    if(filter(trees.value, newDepth) === true) {
+      newArr.push(JSON.parse(JSON.stringify(trees.value)))
+    }
+    if(trees.children.length !== 0){
+      for(let i=0; i<trees.children.length; i++){
+        recurtion(trees.children[i], newDepth+1);
+      }
+    }
+  }
+  recurtion(this, newDepth)
   return newArr;
 };
 
