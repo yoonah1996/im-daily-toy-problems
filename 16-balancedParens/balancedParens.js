@@ -18,7 +18,7 @@
  *
  * Step 3:
  * ignore non-bracket characters
- * balancedParens(' var wow  = { yo: thisIsAwesome() }'); // true
+ * balancedParens(' var wow  = { yo: thisIsAwesoem() }'); // true
  * balancedParens(' var hubble = function() { telescopes.awesome();'); // false
  *
  *
@@ -62,3 +62,42 @@ var balancedParens = function(input){
 };
 
 
+// var balancedParens = function(input){
+//     let stack = [];
+//     let data = input.split("");
+//     let peek = '';
+
+//     const compareBracket = function(peek, data){
+//         console.log(peek + data);
+//         if(peek === data){
+//             stack.pop();
+//             return true;
+//         }else{
+//             return false;
+//         }
+//     }
+    
+//     for(let i=0; i < data.length; i++){
+//         peek = stack[stack.length-1];
+
+//         switch(data[i]){
+//             case '(':
+//             case '{':
+//             case '[':
+//                 stack.push(data[i]);
+//                 console.log(stack);
+//                 break;
+//             case ')':
+//                 if(compareBracket('(', data[i]) === false)return false;
+//                 break;
+//             case '}':
+//                 if(compareBracket('{', data[i]) === false)return false;
+//                 break;
+//             case ']':
+//                 if(compareBracket('[', data[i]) === false)return false;
+//                 break;
+//         }
+//     }
+//     console.log(stack);
+//     return (stack.length === 0) ? true : false;
+// };
