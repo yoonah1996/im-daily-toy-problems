@@ -24,6 +24,41 @@
  *
  */
 var balancedParens = function(input){
+    let newArr = [];
+    let inputstr = input.split("");
+    // console.log(inputstr);
+    for(let i=0; i < inputstr.length; i++){
+        switch(inputstr[i]){
+            case '(':
+            case '{':
+            case '[':
+                newArr.push(inputstr[i]);
+                break;
+            case ')':
+                if(newArr[newArr.length-1] === '('){
+                    newArr.pop();
+                }else{
+                    return false;
+                }
+                break;
+            case '}':
+                if(newArr[newArr.length-1] === '{'){
+                    newArr.pop();
+                }else{
+                    return false;
+                }
+                break;
+            case ']':
+                if(newArr[newArr.length-1] === '['){
+                    newArr.pop();
+                }else{
+                    return false;
+                }
+                break;
+        }
+    }
+    if(newArr.length === 0) return true;
+    return false;
 };
 
 
