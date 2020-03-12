@@ -9,8 +9,15 @@
  */
 
 var binarySearch = function (array, target) {
-    for(let i=0; i<array.length; i++){
-        if(array[i] === target) return i;
+    let center = array[Math.floor(array.length / 2)];
+    let centerIdx = Math.floor(array.length / 2)
+    
+    if(center === target){
+        return centerIdx;
+    }else if(center > target){
+        return binarySearch(array.slice(0, centerIdx), target);
+    }else if(center < target){
+        return centerIdx  + binarySearch(array.slice(centerIdx), target);
     }
 };
 
