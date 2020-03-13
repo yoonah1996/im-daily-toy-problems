@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "submit": "node .travis/submit.js",
-    "test": "node .travis/getdailyscript.js | bash"
+    "test": "node .travis/getdailyscript.js | bash",
+    "toy15" : "mocha 15-rangeClass"
   },
   "author": "codestates",
   "devDependencies": {
