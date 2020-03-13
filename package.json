@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "submit": "node .travis/submit.js",
-    "test": "node .travis/getdailyscript.js | bash"
+    "test": "node .travis/getdailyscript.js | bash",
+    "toy17" : "mocha 17-asyncMap"
   },
   "author": "codestates",
   "devDependencies": {
