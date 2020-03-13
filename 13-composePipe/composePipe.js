@@ -30,11 +30,30 @@
  *  pipe(add2, multiplyBy3)(5) // 21
  *  pipe(add2, multiplyBy3, multiplyBy3)(5) // 63
  */
-
+// 이해 안됐던 부분 => 
+// var greet = function(name){return 'hi: ' + name;};
+// var exclaim = function(statement){return statement.toUpperCase() + '!'};
+// var welcome = compose(greet, exclaim);
 'use strict';
 
-var compose = function(){
+var compose = function(...arg){
+    // console.log(arg);
+    return function(val){
+        // console.log(val);
+        let result = val;
+        for(let i=arg.length-1; i>=0; i--){
+            result = arg[i](result);
+        }
+        return result;
+    }
 };
 
-var pipe = function(){
+var pipe = function(...arg){
+    return function(val){
+        let result = val;
+        for(let i=0; i<arg.length; i++){
+            result = arg[i](result);
+        }
+        return result;
+    }
 };
