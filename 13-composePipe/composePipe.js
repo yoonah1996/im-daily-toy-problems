@@ -34,24 +34,32 @@
 // var greet = function(name){return 'hi: ' + name;};
 // var exclaim = function(statement){return statement.toUpperCase() + '!'};
 // var welcome = compose(greet, exclaim);
+// welcome('phillip')
+// 인 경우 대체 'phillip'를 어떤식으로 받아야 하나 고민 했었는데
+// compose(greet, exclaim)('phillip') 이런식으로 이해하는 것보다
+// function welcome('phillip'){
+//   compose(greet, exclaim)
+// }
+// 이런식으로 생각..?
+
 'use strict';
 
-var compose = function(...arg){
+var compose = function (...arg) {
     // console.log(arg);
-    return function(val){
+    return function (val) {
         // console.log(val);
         let result = val;
-        for(let i=arg.length-1; i>=0; i--){
+        for (let i = arg.length - 1; i >= 0; i--) {
             result = arg[i](result);
         }
         return result;
     }
 };
 
-var pipe = function(...arg){
-    return function(val){
+var pipe = function (...arg) {
+    return function (val) {
         let result = val;
-        for(let i=0; i<arg.length; i++){
+        for (let i = 0; i < arg.length; i++) {
             result = arg[i](result);
         }
         return result;
