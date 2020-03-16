@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 var should = require('should');
 var vm = require('vm');
 var fs = require('fs');
