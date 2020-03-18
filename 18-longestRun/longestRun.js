@@ -13,7 +13,14 @@
  */
 
 var longestRun = function (string) {
-  // TODO: Your code here!
+  let result = [];
+  let newObj = {};
+  if(string.length === 0) return [0,0]
+  for(let i=0; i<string.length; i++){
+    if(newObj.hasOwnProperty(i)){
+      
+    }
+  }
 };
 
 // If you need a random string generator, use this!

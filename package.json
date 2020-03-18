@@ -6,7 +6,7 @@
   "scripts": {
     "submit": "node .travis/submit.js",
     "test": "node .travis/getdailyscript.js | bash",
-    "toy17" : "mocha 17-asyncMap"
+    "toy18" : "mocha 18-longestRun"
   },
   "author": "codestates",
   "devDependencies": {
