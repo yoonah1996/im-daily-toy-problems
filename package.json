@@ -6,7 +6,7 @@
   "scripts": {
     "submit": "node .travis/submit.js",
     "test": "node .travis/getdailyscript.js | bash",
-    "test1" : "mocha 19-mergeSort"
+    "toy19" : "mocha 19-mergeSort"
   },
   "author": "codestates",
   "devDependencies": {

@@ -98,5 +98,21 @@
 
 
 var mergeSort = function(array) {
-  // Your code here.
+  let recurtion = function(array){
+    let merge = Math.floor(array.length /2);
+    if(array.length > 1){
+      let start = [], end = [], oupput =[];
+      start = start.concat(recurtion(array.slice(0, merge)));
+      end = end.concat(recurtion(array.slice(merge)));
+      while(start.length === 0 && end.length === 0){
+        (start[0] > end[0]) ? oupput.push(end[0]) && end.shift() : oupput.push(start[0]) && start.shift();
+      }
+      // console.log(a.concat(b));
+      return oupput;
+    }else{
+      // console.log(array);
+      return array;
+    }
+  }
+  return recurtion(array);
 };
