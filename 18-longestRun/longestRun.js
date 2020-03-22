@@ -13,14 +13,25 @@
  */
 
 var longestRun = function (string) {
-  let result = [];
-  let newObj = {};
-  if(string.length === 0) return [0,0]
-  for(let i=0; i<string.length; i++){
-    if(newObj.hasOwnProperty(i)){
+  let result = [0,0];
+  // let newObj = {};
+  // if(string.length === 0) return [0,0]
+  // for(let i=0; i<string.length; i++){
+  //   if(newObj.hasOwnProperty(i)){
       
+  //   }
+  // }
+  let firstCount = 0;
+  for(let i=1; i<string.length; i++){
+    if(string[i-1] !== string[i]){
+      if((result[1] - result[0]) < ((i-1) - firstCount)){
+        result[0] = firstCount;
+        result[1] = i-1;
+      }
+      firstCount = i;
     }
   }
+  return result;
 };
 
 // If you need a random string generator, use this!
