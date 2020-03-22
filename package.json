@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "submit": "node .travis/submit.js",
-    "test": "node .travis/getdailyscript.js | bash"
+    "test": "node .travis/getdailyscript.js | bash",
+    "toy21" : "mocha 21-rotateMatrix"
   },
   "author": "codestates",
   "devDependencies": {
