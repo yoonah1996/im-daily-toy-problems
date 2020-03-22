@@ -14,13 +14,7 @@
 
 var longestRun = function (string) {
   let result = [0,0];
-  // let newObj = {};
-  // if(string.length === 0) return [0,0]
-  // for(let i=0; i<string.length; i++){
-  //   if(newObj.hasOwnProperty(i)){
-      
-  //   }
-  // }
+  
   let firstCount = 0;
   for(let i=1; i<string.length; i++){
     if(string[i-1] !== string[i]){
