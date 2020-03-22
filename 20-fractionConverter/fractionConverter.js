@@ -13,5 +13,25 @@
  */
 
 var toFraction = function(number) {
-  // Your code here
+  let newArr = String(number).split('.');
+  if(newArr.length !== 2){
+    newArr.push(1);
+    return newArr.join('/');
+  }
+  let denominator = newArr[1].length;
+  let Division = '';
+  if(Math.abs(newArr[0]) > 0){
+    newArr[0] = newArr[0]+ newArr[1];
+    newArr[1] = (Math.pow(10,denominator));
+    Division = Math.abs(Math.floor(newArr[0]/2));
+  }else{
+    newArr.shift();
+    newArr.push(Math.pow(10,denominator));
+    Division = Math.floor(newArr[1]/2);
+  }
+  newArr = newArr.map(el => Number(el));
+  for(let i=Division; i>0; i--){
+    (newArr[0] % i === 0) && (newArr[1] % i === 0) ? newArr = newArr.map(el => Math.floor(el/i)) : 1;
+  }
+  return newArr.join('/');
 };
