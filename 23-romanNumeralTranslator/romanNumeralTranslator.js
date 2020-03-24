@@ -52,5 +52,4 @@ var translateRomanNumeral = function (romanNumeral) {
   }
   
   return result;
-
 };
