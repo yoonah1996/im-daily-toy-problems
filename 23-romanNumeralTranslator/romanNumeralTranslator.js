@@ -26,7 +26,31 @@ var DIGIT_VALUES = {
   M: 1000
 };
 
-var translateRomanNumeral = function(romanNumeral){
-// TODO: Implement me!
+var translateRomanNumeral = function (romanNumeral) {
+  let romaArr = String(romanNumeral).split("");
+  let bloo = false;
+  let result = 0;
+  romaArr.forEach(el => {
+    if(!DIGIT_VALUES.hasOwnProperty(el)){
+      bloo = true;
+    }
+  })
+  if(bloo) return null;
+  
+  if(romaArr.length > 1){
+    romaArr.forEach((el, idx) =>{
+      if(!romaArr[idx+1]){
+        result = result + DIGIT_VALUES[el];
+      }else{
+        DIGIT_VALUES[romaArr[idx]] >= DIGIT_VALUES[romaArr[idx+1]] ? 
+        result = result + DIGIT_VALUES[el] :
+        result = result - DIGIT_VALUES[el]
+      }
+    })
+  }else{
+    return !!romaArr[0] ? DIGIT_VALUES[romaArr[0]] : result
+  }
+  
+  return result;
 
 };
