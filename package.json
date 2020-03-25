@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "submit": "node .travis/submit.js",
-    "test": "node .travis/getdailyscript.js | bash",
-    "toy23" : "mocha 23-romanNumeralTranslator"
+    "test": "mocha 23-romanNumeralTranslator"
   },
   "author": "codestates",
   "devDependencies": {
