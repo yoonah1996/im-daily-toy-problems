@@ -18,22 +18,41 @@
 
 
 var LinkedList = function(){
-  //fill me in!
+  this.head = null;
+  this.tail = null;
 };
 
 //write methods here!
 
-LinkedList.prototype.addToTail = function(
-){
+LinkedList.prototype.addToTail = function(data){
+  if (this.head === null) {
+    this.head = new this.makeNode(data);
+    this.tail = this.head;
+  } else {
+    this.tail.next = new this.makeNode(data);
+    this.tail = this.tail.next;
+  }
 };
 
 LinkedList.prototype.removeHead = function(){
+  this.head = this.head.next;
+  if(this.head === null) this.tail = this.head;
 };
 
-LinkedList.prototype.contains = function(
-){
+LinkedList.prototype.contains = function(data){
+  if(this.head.value === data){
+    return true;
+  }
+  while(this.head.next !== null){
+    this.head = this.head.next;
+    if(this.head.value === data){
+      return true;
+    }
+  }
+  return false;
 };
 
-LinkedList.prototype.makeNode = function(
-){
+LinkedList.prototype.makeNode = function(data){
+  this.value = data;
+  this.next = null;
 };
