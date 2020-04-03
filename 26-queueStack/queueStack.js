@@ -47,10 +47,16 @@ var Queue = function() {
   // called to remove an item from the `queue`
   this.dequeue = function(){
     // TODO: implement `dequeue`
-    outbox.push(inbox.pop());
-    let deSize = outbox.size();
-    console.log(outbox.storage.deSize)
-;    return outbox[outbox.size()-1];
+    while(inbox.size() !== 0){
+      outbox.push(inbox.pop());
+    }
+    let popData = outbox.pop();
+
+    while(outbox.size() !== 0){
+      inbox.push(outbox.pop());
+  }
+    
+    return popData;
   };
 
   // should return the number of items in the queue
