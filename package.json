@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "submit": "node .travis/submit.js",
-    "test": "node .travis/getdailyscript.js | bash"
+    "test": "mocha 26-queueStack"
   },
   "author": "codestates",
   "devDependencies": {
