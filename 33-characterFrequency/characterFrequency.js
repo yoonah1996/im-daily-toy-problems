@@ -36,6 +36,11 @@
  */
 
 
-var characterFrequency = function(string) {
+var characterFrequency = function (string) {
+  let result = [];
+  let pushArr = {};
+  
+  
+  console.log(result);
   return result;
 };
