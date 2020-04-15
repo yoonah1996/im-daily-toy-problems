@@ -53,6 +53,12 @@ var numbersToPlace = {
   1000000000000000000: 'quintillion',
 };
 
-Number.prototype.toEnglish = function () {
+Number.prototype.toEnglish = function (num) {
   // return my value as english words
+  let result = [];
+  let recursive = (num) =>{
+     
+  }
+  recursive(num);
+  return result.join(' ')
 };
