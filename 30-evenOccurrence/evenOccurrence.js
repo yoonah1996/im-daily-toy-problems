@@ -10,6 +10,22 @@
  * console.log(onlyEven); //  4
 */
 
-var evenOccurrence = function(arr) {
-  // Your code here.
+var evenOccurrence = function (arr) {
+  let newobj = {};
+
+  arr.forEach(el => {
+    if (newobj.hasOwnProperty(el)) {
+      newobj[el] = newobj[el] + 1;
+    } else {
+      newobj[el] = 1;
+    }
+  })
+  console.log(newobj)
+  for (let key in newobj) {
+    if (newobj[key] % 2 === 0) {
+      if(isNaN(key)) return key;
+      return Number(key);
+    }
+  }
+  return null;
 };
