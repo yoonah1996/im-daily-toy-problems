@@ -26,10 +26,23 @@
  */
 'use strict';
 
-const compose = function() {
+const compose = function(...arg) {
   // TODO: Your code here!
+  return function(value){
+    for(let i= arg.length-1; i>=0; i--){
+        value = arg[i](value);
+    }
+      return value;
+  }
+
 };
 
-const pipe = function() {
+const pipe = function(...arg) {
   // TODO: Your code here!
+  return function(value){
+      for(let i=0; i < arg.length; i++){
+          value = arg[i](value);
+      }
+      return value;
+  }
 };
