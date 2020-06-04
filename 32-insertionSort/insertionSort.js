@@ -42,12 +42,23 @@ var testingTransform = function(array) {
   
   for (var i = 0; i < array.length; i++)
     transform.push({value: array[i], i: i});
-
   return transform;
 };
 
-var insertionSort = function(array
-) {
+var insertionSort = function(array) {
   // Your code goes here. Feel free to add helper functions if needed.
-  return array;
+  let result = [];
+  let newArr = [];
+
+  array.forEach(el => newArr.push(el.value));
+  newArr = newArr.sort((a,b) => a-b);
+  
+  newArr.forEach(newEl => {
+    array.forEach(arrayEl => {
+      if(newEl === arrayEl.value) result.push(arrayEl);
+    })
+  })
+  console.log(result);
+  
+  return result;
 };
