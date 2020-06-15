@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "submit": "node .travis/submit.js",
-    "test": "node .travis/getdailyscript.js | bash",
-    "toy33" : "mocha 33-characterFrequency"
+    "test": "mocha 33-characterFrequency"
   },
   "author": "codestates",
   "devDependencies": {

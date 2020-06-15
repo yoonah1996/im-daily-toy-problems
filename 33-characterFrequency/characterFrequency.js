@@ -38,9 +38,35 @@
 
 var characterFrequency = function (string) {
   let result = [];
-  let pushArr = {};
-  
-  
+  let newObj = {};
+  let sortArr = [];
+
+  string.split('').forEach(el => {
+    if (newObj.hasOwnProperty(el)) {
+      newObj[el] += 1;
+    }
+    else {
+      newObj[el] = 1;
+    } 0
+  })
+
+
+
+  Object.values(newObj).sort((a, b) => b - a).forEach(el => {
+
+    for (let key in newObj) {
+      // console.log(el + "," + key)
+      if (el === newObj[key]) {
+
+        let pushArr = [key, newObj[key]];
+        result.push(pushArr);
+        delete newObj[key];
+
+      }
+    }
+
+  })
   console.log(result);
+
   return result;
 };
