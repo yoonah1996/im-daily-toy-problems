@@ -56,9 +56,26 @@ var numbersToPlace = {
 Number.prototype.toEnglish = function (num) {
   // return my value as english words
   let result = [];
+  console.log(num);
+  let numArr = String(num).split("");
+  console.log(numArr);
+
+  let num1 = parseInt(num.length / 3)
+  console.log(num1)
   let recursive = (num) =>{
-     
+    //세자리씩 반복 갯수
+    let num1 = parseInt(num.length / 3)
+    console.log(num1)
+    // 세자리 안에 숫자 문자로 만들기
+    switch(num.length % 3){
+      case 0:
+        break;
+      case 1:
+        break;
+      case 2:
+        break;
+      default:
+        break;
+    } 
   }
-  recursive(num);
-  return result.join(' ')
 };
